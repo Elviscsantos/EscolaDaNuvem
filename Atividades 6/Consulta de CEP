@@ -1,0 +1,21 @@
+import requests
+
+def consultar_cep(cep):
+    # Remove hífens ou espaços para evitar erros na URL
+    cep = cep.replace("-", "").replace(" ", "")
+    url = f"https://viacep.com.br{cep}/json/"
+    
+    try:
+        resposta = requests.get(url)
+        dados = resposta.json()
+        
+        if "erro" in dados:
+            print("Erro: CEP não encontrado.")
+        else:
+            print(f"Endereço: {dados['logradouro']}\nBairro: {dados['bairro']}")
+            print(f"Cidade: {dados['localidade']} - {dados['uf']}")
+    except Exception:
+        print("Falha na requisição. Verifique sua conexão ou o CEP digitado.")
+
+entrada = input("Digite o CEP (apenas números): ")
+consultar_cep(entrada)
