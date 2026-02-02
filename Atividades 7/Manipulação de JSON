@@ -1,0 +1,16 @@
+import json
+
+pessoa = {"nome": "Carla", "idade": 28, "cidade": "Curitiba"}
+nome_json = "dados.json"
+
+try:
+    # Escrever
+    with open(nome_json, 'w', encoding='utf-8') as f:
+        json.dump(pessoa, f, indent=4, ensure_ascii=False)
+    
+    # Ler
+    with open(nome_json, 'r', encoding='utf-8') as f:
+        dados_lidos = json.load(f)
+        print("Dados lidos do JSON:", dados_lidos)
+except (FileNotFoundError, IOError):
+    print("Falha: Arquivo não existe ou erro ao processar.")
