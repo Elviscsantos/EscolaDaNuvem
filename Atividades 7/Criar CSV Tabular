@@ -1,0 +1,17 @@
+import csv
+
+dados = [
+    ["Nome", "Idade", "Cidade"],
+    ["Ana", 25, "São Paulo"],
+    ["Bruno", 30, "Rio de Janeiro"]
+]
+
+nome_arquivo = input("Nome do arquivo para salvar (ex: dados.csv): ")
+
+try:
+    with open(nome_arquivo, 'w', newline='', encoding='utf-8') as f:
+        escritor = csv.writer(f, delimiter=';') # Delimitador para formato tabular
+        escritor.writerows(dados)
+    print("Arquivo salvo com sucesso!")
+except Exception:
+    print("Falha ao salvar o arquivo.")
