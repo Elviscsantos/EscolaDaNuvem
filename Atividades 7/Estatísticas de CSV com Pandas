@@ -1,0 +1,12 @@
+import pandas as pd
+
+try:
+    caminho = input("Caminho do arquivo CSV: ")
+    df = pd.read_csv(caminho)
+    media = df['tempo_execucao'].mean()
+    soma = df['tempo_execucao'].sum()
+    print(f"Média: {media:.2f} | Total: {soma:.2f}")
+except FileNotFoundError:
+    print("Erro: Arquivo não encontrado.")
+except Exception as e:
+    print(f"Erro na leitura: {e}")
