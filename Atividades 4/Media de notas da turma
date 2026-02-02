@@ -1,0 +1,9 @@
+notas = []
+while True:
+    entrada = input("Digite a nota (ou 'fim' para calcular): ")
+    if entrada.lower() == 'fim': break
+    notas.append(float(entrada))
+
+if notas:
+    media = sum(notas) / len(notas)
+    print(f"Média da turma: {media:.2f}")
