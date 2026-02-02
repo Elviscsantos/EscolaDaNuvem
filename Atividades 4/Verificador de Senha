@@ -1,0 +1,9 @@
+senha = input("Digite sua senha: ")
+
+tem_numero = any(char.isdigit() for char in senha)
+tamanho_ok = len(senha) >= 8
+
+if tem_numero and tamanho_ok:
+    print("Senha segura!")
+else:
+    print("Senha inválida: deve ter 8+ caracteres e ao menos 1 número.")
