@@ -1,0 +1,10 @@
+peso = float(input("Peso (kg): "))
+altura = float(input("Altura (m): "))
+imc = peso / (altura ** 2)
+
+if imc < 18.5: classe = "Abaixo do peso"
+elif imc < 25: classe = "Peso normal"
+elif imc < 30: classe = "Sobrepeso"
+else: classe = "Obeso"
+
+print(f"Seu IMC é {imc:.2f}: {classe}")
