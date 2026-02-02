@@ -1,0 +1,14 @@
+from datetime import date
+
+def calcular_dias_de_vida():
+    dia = int(input("Dia do nascimento: "))
+    mes = int(input("Mês do nascimento: "))
+    ano = int(input("Ano do nascimento: "))
+    
+    data_nascimento = date(ano, mes, dia)
+    hoje = date.today()
+    
+    diferenca = hoje - data_nascimento
+    print(f"Você está vivo há {diferenca.days} dias.")
+
+calcular_dias_de_vida()
