@@ -1,0 +1,9 @@
+import string
+
+def eh_palindromo(texto):
+    # Remove espaços e pontuação, converte para minúsculo
+    limpo = "".join(caracter for caracter in texto if caracter.isalnum()).lower()
+    return "Sim" if limpo == limpo[::-1] else "Não"
+
+frase = input("Digite uma palavra ou frase: ")
+print(f"É um palíndromo? {eh_palindromo(frase)}")
