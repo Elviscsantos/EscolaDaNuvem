@@ -1,0 +1,8 @@
+arquivo_txt = input("Informe o nome/caminho do arquivo .txt: ")
+
+try:
+    with open(arquivo_txt, 'r', encoding='utf-8') as f:
+        for linha in f:
+            print(linha.strip())
+except FileNotFoundError:
+    print("Erro: O arquivo informado não foi encontrado.")
