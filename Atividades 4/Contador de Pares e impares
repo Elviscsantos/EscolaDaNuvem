@@ -1,0 +1,16 @@
+pares = 0
+impares = 0
+
+while True:
+    n = input("Digite um número (ou 'sair'): ")
+    if n.lower() == 'sair': break
+    
+    num = int(n)
+    if num % 2 == 0:
+        pares += 1
+        print(f"{num} é Par")
+    else:
+        impares += 1
+        print(f"{num} é Ímpar")
+
+print(f"Total -> Pares: {pares} | Ímpares: {impares}")
