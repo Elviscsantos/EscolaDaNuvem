@@ -1,0 +1,18 @@
+import requests
+
+def consultar_moeda(sigla_moeda):
+    url = f"https://economia.awesomeapi.com.br{sigla_moeda}-BRL"
+    
+    try:
+        resposta = requests.get(url)
+        dados = resposta.json()[f"{sigla_moeda}BRL"]
+        
+        print(f"--- Cotação {sigla_moeda}/BRL ---")
+        print(f"Valor Atual: R$ {float(dados['bid']):.2f}")
+        print(f"Máxima: R$ {float(dados['high']):.2f} | Mínima: R$ {float(dados['low']):.2f}")
+        print(f"Última Atualização: {dados['create_date']}")
+    except Exception:
+        print(f"Erro: Moeda '{sigla_moeda}' não encontrada ou falha na conexão.")
+
+moeda = input("Digite a sigla da moeda (ex: USD, EUR, BTC): ").upper()
+consultar_moeda(moeda)
