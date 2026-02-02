@@ -1,0 +1,19 @@
+import requests
+
+def buscar_usuario():
+    try:
+        url = "https://randomuser.me/api/"
+        resposta = requests.get(url)
+        # Levanta erro se o status da requisição for falha (ex: 404, 500)
+        resposta.raise_for_status() 
+        
+        dados = resposta.json()["results"][0]
+        nome = f"{dados['name']['first']} {dados['name']['last']}"
+        email = dados['email']
+        pais = dados['location']['country']
+        
+        print(f"Nome: {nome}\nE-mail: {email}\nPaís: {pais}")
+    except Exception:
+        print("Falha na conexão com a API de usuários.")
+
+buscar_usuario()
